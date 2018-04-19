@@ -25,11 +25,22 @@ Albus Dumbledore can no longer rely on magic and his brain to keep track of all 
 * The API should follow REST or GraphQL best practices
 * The backend should be implemented in one of the following languages: NodeJS, PHP, Java
 * Create CRUD endpoints for the data models
-* Create a React interface that will facilitate CRUD operations on Students, Courses
+* Create a React interface that will facilitate the following functionality:
+    * Viewing students
+    * Editing students
+    * Creating new students
+    * Deleting students
+* Create a React interface that will facilitate the following functionality:
+    * Viewing courses
+    * Editing courses
+    * Creating new courses
+    * Deleting courses
 * Implement one or more of the following on the front-end:
     * Client side search on students
-    * Pagination
-    * Drag and drop
+    * Paginated list for viewing students
+    * Paginated list for viewing courses
+    * Drag and drop interface for enrolling students into courses
+    * Interface for assigning grades to students for the courses that they are enrolled in.
 
 If you finish these requirements under the time limit feel free to make improvements. Some suggestions include:
 * Server-side search on students
