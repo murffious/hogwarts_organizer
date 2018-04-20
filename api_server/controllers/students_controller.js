@@ -75,4 +75,13 @@ app.put("/students/edit", function(req, res) {
   //   }
 });
 
-module.exports = router;
+// delete route
+app.delete("/student/delete/:id", function(req, res) {
+  db.Student.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbStudent) {
+    res.json(dbStudent);
+  });
+});
