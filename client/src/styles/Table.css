@@ -1,0 +1,38 @@
+
+.data-table-wrapper td,
+.data-table-warpper th{
+	padding: 8px;
+}
+.data-table-wrapper th{
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 500;
+	color: #333;
+}
+.data-table-wrapper .no-wrap{
+	white-space: nowrap;
+}
+.data-table-wrapper .dataTables_length{
+	float: left;
+}
+.data-table-wrapper .dataTables_filter{
+	width: 40%;
+	float: right;
+	text-align: right;
+}
+.data-table-wrapper .dataTables_info{
+	clear: both;
+	float: left;
+	padding-top: 0.755em;
+}
+.data-table-wrapper .dataTables_paginate{
+	float: right;
+	text-align: right;
+	padding-top: 0.25em
+}
+.data-table-wrapper .dataTables_paginate .paginate_button{
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-align: center;
+}

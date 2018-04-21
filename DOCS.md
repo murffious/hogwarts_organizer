@@ -46,3 +46,6 @@ Node
 Materialize Style package icons and such
 Possible jQuery tables for pagination and search etc. depends on bootstrap etc
 Bonus React Dnd
+semanitc 
+To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.

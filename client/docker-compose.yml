@@ -1,0 +1,9 @@
+version: '3'
+services:
+  client:
+    build: .
+    environment:
+      - REACT_APP_
+
+    ports:
+      - "${PORT}:5000"

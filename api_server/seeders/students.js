@@ -6,32 +6,67 @@ module.exports = {
       "Students",
       [
         {
-          student_name: "Big Kahuna Burger",
-          devoured: false,
+          student_name: " Harry Potter",
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          burger_name: "Krusty Burger",
-          devoured: false,
+          student_name: "Hermione Granger",
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          burger_name: "Krabby Patty",
-          devoured: false,
+          student_name: "Draco Malfoy",
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          burger_name: "Veggie Burger",
-          devoured: false,
+          student_name: "Seamus Finniganr",
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          burger_name: "Pineapple Burger",
-          devoured: false,
+          student_name: "Neville Longbottom",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          student_name: "Seamus Finniganr",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          student_name: "Luna Lovegood",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          student_name: "Oliver Wood",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          student_name: "Fred Weasley",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          student_name: "George Weasley",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          student_name: "Ginny Weasley",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          student_name: "Ernie MacMillan",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          student_name: "Percy Weasley",
           createdAt: new Date(),
           updatedAt: new Date()
         }
@@ -41,6 +76,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("Burgers", null, { truncate: true });
+    return queryInterface.bulkDelete("Students", null, { truncate: true });
   }
 };

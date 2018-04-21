@@ -1,13 +1,21 @@
 version: '3'
 services:
-  # api:
-    # image:
-    # container_name:
-    # volumes:
-    # ports:
-    #   - "8080:80"
-    # depends_on:
-    #   - mysqldb
+  api:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    command: 'npm run dev'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysqldb
+    networks:
+      - my-net
+  
   mysqldb:
     image: mysql
     container_name: mysqldb
@@ -18,7 +26,13 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: "test"
-      MYSQL_USER: "test"
-      MYSQL_PASSWORD: "test"
+      MYSQL_USER: "pmurff"
+      MYSQL_PASSWORD: "root"
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+
+networks:
+  my-net:
+    external:
+      name: fullstack_default
