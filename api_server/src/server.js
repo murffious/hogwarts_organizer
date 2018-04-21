@@ -15,6 +15,13 @@ app.use(
   })
 );
 
+// Routes
+var routes = require("./controllers/*.js");
+
+app.use("/", routes);
+
+// require("./controllers/*.js")(app);
+
 // listen on port 3000
 var PORT = process.env.PORT || 3000;
 db.sequelize.sync().then(function() {
