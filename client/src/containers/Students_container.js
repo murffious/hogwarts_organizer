@@ -44,29 +44,6 @@ class StudentContainer extends Component {
       .catch(err => console.log(err));
   };
 
-  getStudents = () => {
-    API.getStudents()
-      .then(res =>
-        this.setState({
-          students: res.data,
-          message: !res.data.length
-            ? "No Students Found, Try a Adding Some"
-            : ""
-        })
-      )
-      .catch(err => console.log(err));
-  };
-
-  getStudent = () => {
-    API.getStudent()
-      .then(res =>
-        this.setState({
-          student: res.data
-        })
-      )
-      .catch(err => console.log(err));
-  };
-
   deleteStudent = () => {
     API.deleteStudent()
       .then(res =>

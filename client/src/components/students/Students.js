@@ -67,6 +67,9 @@ class Students extends Component {
             <a href="/students/edit/:${
               data._id
             }" class="btn bgm-bluegray" data-id="${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> Edit Student </a>
+            <a href="/delete/:${
+              data._id
+            }" class="btn bgm-bluegray" data-id="${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> DELETE Student </a>
         </div>`;
   }
 
@@ -88,19 +91,18 @@ class Students extends Component {
                     defaultContent: '<i class="fa fa-caret-down"></i>',
                     className: "details-control"
                   },
-                  // {
-                  //   orderable: false,
-                  //   title: "Actions",
-                  //   class: "no-wrap",
-                  //   data: data => {
-                  //     return this.getActionsDropdown(data);
-                  //   }
-                  // },
-
                   {
                     title: "Students",
                     data: data => {
                       return `<span>${data.student_name}<span>`;
+                    }
+                  },
+                  {
+                    orderable: false,
+                    title: "Actions",
+                    class: "no-wrap",
+                    data: data => {
+                      return this.getActionsDropdown(data);
                     }
                   }
                 ]}

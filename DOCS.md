@@ -13,7 +13,7 @@
     - 60 min. Docker set up/Testing/Finalize & Bonus stuff
 
 End Time: `Fri. Apirl 20, 2018 - 8:30 pm MST`
-Subtracting for bathroom,food break and other obligations so 5 hours total time coding or on the computer 
+Subtracting for bathroom, food break and other obligations so 5 hours total time coding or on the computer 
 
 ### Follows best practices
 - REST get put etc 
