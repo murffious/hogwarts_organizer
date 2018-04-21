@@ -12,15 +12,8 @@
         - Half front end
     - 60 min. Docker set up/Testing/Finalize & Bonus stuff
 
-End Time:
+End Time: Like 9:
 
-
-* Code quality - styles
-underscore for 
-camel case
-4 spaces 
-do tests with time
-names meaningful 
 
 * Follows best practices
 REST get put etc 
@@ -30,16 +23,15 @@ M0bile first
 Container/Presentatial as discucees by Dan Amrabmov
 STyles folder , componenets conaitenrs folder
 
-* Implementation of API
 
-* Schema design
-
-* Documentation - Please provide a couple example requests so we know how to format them when reviewing the assessment
 ES6 MVC ORM
-OPEN file wireframe.xml in https://www.draw.io/ Click save to cmputer altough you wil not be using it then click open existing file and go to wireframe.xml in your finder
+To see wireframe OPEN file `wireframe.xml` in `https://www.draw.io/ `
+    - In draw.io ...Click save to computer then click open existing file and go to `wireframe.xml` in your finder
+database schema
+    - see migrations, seeders, 
+    
+    choice of technologies, any challenges, and the required URLs
 
-your database schema, choice of technologies, any challenges, and the required URLs
-MVC
 choice of technologies,
 SQL
 Node
