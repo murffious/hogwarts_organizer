@@ -12,32 +12,38 @@
         - Half front end
     - 60 min. Docker set up/Testing/Finalize & Bonus stuff
 
-End Time: Like 9:
+End Time: `Fri. Apirl 20, 2018 - 8:30 pm MST`
+Subtracting for bathroom,food break and other obligations so 5 hours total time coding or on the computer 
 
+### Follows best practices
+- REST get put etc 
+- Mobile friendly - materialize library columns/rows sizes etc. 
+- MVC, ORM
+- Some semantic HTML etc.
 
-* Follows best practices
-REST get put etc 
-M0bile first
- ESliint ?
 * Architecture
-Container/Presentatial as discucees by Dan Amrabmov
-STyles folder , componenets conaitenrs folder
+- Container/Presentational on Front End 
+- Styles folder , componenets conaitenrs folder
 
-
-ES6 MVC ORM
 To see wireframe OPEN file `wireframe.xml` in `https://www.draw.io/ `
     - In draw.io ...Click save to computer then click open existing file and go to `wireframe.xml` in your finder
-database schema
-    - see migrations, seeders, 
-    
-    choice of technologies, any challenges, and the required URLs
 
-choice of technologies,
-SQL
+- database schema
+    - see migrations, seeders this is a little differnt than the schema dump as my origianl intention was to host on Heroku or what not
+    
+- choice of technologies
+MySQL
 Node
-Materialize Style package icons and such
-Possible jQuery tables for pagination and search etc. depends on bootstrap etc
-Bonus React Dnd
-semanitc 
-To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
+Materialize_react
+jQuery DataTable.net
+Bonus React Dnd - never got there
+Express
+sequelize
+Create React App
+
+- Features
+    * Client side search on students
+    * Paginated list for viewing students
+    * Paginated list for viewing courses
+Notes:
+Went for 100% but missed it.  Front end CRUD and BUTTONS to use CRUD not done but api file almost done. Does show my understanding as I have many projects done showing I know this stuff on my GitHub link on resume see emailsurveysapp and toyotaclone and many others. 
