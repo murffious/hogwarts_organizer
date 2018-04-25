@@ -16,11 +16,14 @@ app.use(
 );
 
 // Routes
-var routes = require("./controllers/*.js");
+// alternate way
+// var routes = require("./controllers/...js");
 
-app.use("/", routes);
+// app.use("/", routes);
 
-// require("./controllers/*.js")(app);
+require("./controllers/courses_controller.js")(app);
+require("./controllers/grades_controller.js")(app);
+require("./controllers/students_controller.js")(app);
 
 // listen on port 3000
 var PORT = process.env.PORT || 3000;

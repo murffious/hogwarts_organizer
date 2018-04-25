@@ -66,10 +66,10 @@ class Students extends Component {
         <div class="btn-group">
             <a href="/students/edit/:${
               data._id
-            }" class="btn bgm-bluegray" data-id="${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> Edit Student </a>
+            }" class="btn bgm-bluegray" data-id="${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> </a>
             <a href="/delete/:${
               data._id
-            }" class="btn bgm-bluegray" data-id="${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> DELETE Student </a>
+            }" class="btn bgm-bluegray" data-id="${id} aria-expanded="true"><i class="fa fa-trash" aria-hidden="true"></i> </a>
         </div>`;
   }
 
@@ -88,7 +88,8 @@ class Students extends Component {
                 columns={[
                   {
                     orderable: false,
-                    defaultContent: '<i class="fa fa-caret-down"></i>',
+                    defaultContent:
+                      '<span>View Details<i class="fa fa-caret-down"></i></span>',
                     className: "details-control"
                   },
                   {

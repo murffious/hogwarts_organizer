@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button, Icon, Navbar, NavItem } from "react-materialize";
 import Students from "./components/students/Students";
 import Courses from "./components/courses/Courses";
+import Dashboard_Container from "./containers/Dashboard_Container";
 
 class App extends Component {
   render() {
@@ -15,7 +16,8 @@ class App extends Component {
         </Navbar>
         <Router>
           <div>
-            <Route exact path="/" component={Students} />
+            <Route exact path="/dashboard" component={Dashboard_Container} />
+            <Route exact path="/students" component={Students} />
             <Route exact path="/courses" component={Courses} />
           </div>
         </Router>
