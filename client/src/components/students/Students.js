@@ -9,6 +9,7 @@ import { Row, CardPanel, Col } from "react-materialize";
 
 import dataTable from "../DataTable";
 import Table from "../Table.js";
+import API from "../../controller_api/student_api";
 
 const data = [
   {
@@ -36,8 +37,41 @@ class Students extends Component {
   //     event.preventDefault();
   //   }
 
-  componentWillMount() {
-    this.setState({ students: data });
+  getStudents = () => {
+    API.getStudents()
+      .then(res => {
+        // let students = res.data.map(student => {
+        //   return { student_name: student.student_name };
+        // });
+        this.setState({
+          students: res.data,
+          message: !res.length ? "No Students Found, Try a Adding Some" : ""
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  deleteStudent = id => {
+    console.log("hi1", id);
+    API.deleteStudent(id)
+      .then(res => {
+        this.getStudents();
+      })
+      .catch(err => console.log(err));
+  };
+
+  componentDidMount() {
+    this.getStudents();
+    // Delete Button
+    $("body").on("click", '[data-action="delete"]', e => {
+      let id = $(e.currentTarget).data("id");
+      let delete_student = window.confirm(
+        `Are you sure you want to delete this Student?`
+      );
+      if (delete_student) {
+        this.deleteStudent(id);
+      }
+    });
   }
 
   formatChildRow(data) {
@@ -60,16 +94,14 @@ class Students extends Component {
   }
 
   getActionsDropdown(data) {
-    let id = data._id;
-
+    let id = data.id;
+    console.log(data, id);
     return `
         <div class="btn-group">
             <a href="/students/edit/:${
-              data._id
-            }" class="btn bgm-bluegray" data-id="${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> </a>
-            <a href="/delete/:${
-              data._id
-            }" class="btn bgm-bluegray" data-id="${id} aria-expanded="true"><i class="fa fa-trash" aria-hidden="true"></i> </a>
+              data.id
+            }" class="btn bgm-bluegray" data-id=${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> </a>
+            <a id="delete" data-action="delete" class="btn bgm-bluegray" data-id=${id} aria-expanded="true"><i class="fa fa-trash" aria-hidden="true"></i> </a>
         </div>`;
   }
 
@@ -80,80 +112,74 @@ class Students extends Component {
           <h1>Students</h1>
         </div>
 
-        <Row>
+        {/* <Row>
           <Col s={12} m={5}>
-            <CardPanel className="lighten-4 black-text">
-              <Table
-                data={this.state.students}
-                columns={[
-                  {
-                    orderable: false,
-                    defaultContent:
-                      '<span>View Details<i class="fa fa-caret-down"></i></span>',
-                    className: "details-control"
-                  },
-                  {
-                    title: "Students",
-                    data: data => {
-                      return `<span>${data.student_name}<span>`;
-                    }
-                  },
-                  {
-                    orderable: false,
-                    title: "Actions",
-                    class: "no-wrap",
-                    data: data => {
-                      return this.getActionsDropdown(data);
-                    }
-                  }
-                ]}
-                onTableReload={() => {}}
-                onRowClick={table_cell => {
-                  if (!table_cell.hasClass("details-control")) {
-                    return false;
-                  }
+            <CardPanel className="lighten-4 black-text"> */}
+        <Table
+          data={this.state.students}
+          columns={[
+            {
+              orderable: false,
+              defaultContent:
+                '<span>View Details<i class="fa fa-caret-down"></i></span>',
+              className: "details-control"
+            },
+            {
+              title: "Students",
+              data: data => {
+                return `<span>${data.student_name}<span>`;
+              }
+            },
+            {
+              orderable: false,
+              title: "Actions",
+              class: "no-wrap",
+              data: data => {
+                return this.getActionsDropdown(data);
+              }
+            }
+          ]}
+          onTableReload={() => {}}
+          onRowClick={table_cell => {
+            if (!table_cell.hasClass("details-control")) {
+              return false;
+            }
 
-                  let table = $(".data-table-wrapper")
-                    .find("table.dataTable")
-                    .DataTable();
+            let table = $(".data-table-wrapper")
+              .find("table.dataTable")
+              .DataTable();
 
-                  let row = table_cell.closest("tr");
+            let row = table_cell.closest("tr");
 
-                  let table_row = table.row(row);
+            let table_row = table.row(row);
 
-                  if (table_row.child.isShown()) {
-                    table_row.child.hide();
-                    row.removeClass("shown");
-                  } else {
-                    table_row
-                      .child(this.formatChildRow(table_row.data()))
-                      .show();
-                    row.addClass("shown");
-                  }
-                }}
-                onTableLoad={() => {
-                  let page = this;
+            if (table_row.child.isShown()) {
+              table_row.child.hide();
+              row.removeClass("shown");
+            } else {
+              table_row.child(this.formatChildRow(table_row.data())).show();
+              row.addClass("shown");
+            }
+          }}
+          onTableLoad={() => {
+            let page = this;
 
-                  $(".data-table-wrapper").on(
-                    "click",
-                    "[data-action]",
-                    function() {
-                      let student_id = $(this).data("id");
+            $(".data-table-wrapper").on("click", "[data-action]", function() {
+              let student_id = $(this).data("id");
 
-                      let current_row = $(this).closest("tr");
-                      let updated_index = current_row.index();
-                      let table = $(".data-table-wrapper")
-                        .find("table.dataTable")
-                        .DataTable();
-                      let table_row = table.row(current_row);
-                      let student_data = table_row.data();
-                    }
-                  );
-                }}
-              />
-            </CardPanel>
+              let current_row = $(this).closest("tr");
+              let updated_index = current_row.index();
+              let table = $(".data-table-wrapper")
+                .find("table.dataTable")
+                .DataTable();
+              let table_row = table.row(current_row);
+              let student_data = table_row.data();
+            });
+          }}
+        />
+        {/* </CardPanel>
           </Col>
-        </Row>
+        </Row> */}
       </section>
     );
   }

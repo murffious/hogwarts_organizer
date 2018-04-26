@@ -4,43 +4,35 @@
 
 var express = require("express");
 
-// grabbing our models
 var db = require("../models");
 
-// initialize express
 var app = express();
 
 // CRUD with sequelize
 module.exports = function(app) {
   // get all students
   app.get("/students", function(req, res) {
-    // replace old function with sequelize function
     db.Student.findAll({
-      include: [db.Student],
-      // Here we specify we want to return our students in order by ascending student_name
+      // Maybe get courses as well with a join
+      // include: [db.Course],
+
+      // return our students in order by ascending student_name
       order: [["student_name", "ASC"]]
-    }).then(function(dbStudent) {
-      // into the main index, updating the page
-      // var hbsObject = {
-      //   student: dbStudent
-      // };
-      return res.send();
+    }).then(function(dbStudents) {
+      return res.send(dbStudents);
     });
   });
 
   // get one student maybe use maybe not
   app.get("/student/:id", function(req, res) {
-    // replace old function with sequelize function
     db.Student.findOne({
-      include: [db.Student],
-      // Here we specify we want to return our students in order by ascending student_name
-      order: [["student_name", "ASC"]]
+      // include: [db.Student],
     }).then(function(dbStudent) {
-      // into the main index, updating the page
-      var hbsObject = {
-        student: dbStudent
-      };
-      return res.send();
+      // Maybe configure the return obj a bit
+      // var hbsObject = {
+      //   student: dbStudent
+      // };
+      return res.send(dbStudent);
     });
   });
 
@@ -55,7 +47,7 @@ module.exports = function(app) {
 
   // put route to edit a student
   app.put("/students/edit", function(req, res) {
-    if (req.body.student) {
+    if (req.body.student_name) {
       db.Student.update(
         {
           student_name: req.body.student_name
@@ -76,7 +68,7 @@ module.exports = function(app) {
   });
 
   // delete route
-  app.delete("/student/delete/:id", function(req, res) {
+  app.delete("/students/delete/:id", function(req, res) {
     db.Student.destroy({
       where: {
         id: req.params.id

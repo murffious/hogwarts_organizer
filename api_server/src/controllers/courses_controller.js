@@ -14,7 +14,7 @@ module.exports = function(app) {
   // get all courses
   app.get("/courses", function(req, res) {
     db.Course.findAll({
-      include: [db.Course],
+      // include: [db.Course],
       order: [["course_name", "ASC"]]
     }).then(function(dbCourse) {
       return res.send();

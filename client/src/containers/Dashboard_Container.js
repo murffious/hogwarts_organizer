@@ -10,7 +10,7 @@ class Dashboard_Container extends Component {
           <Col s={12} m={5}>
             <CardPanel className="teal lighten-4 black-text">
               Welcome to my Full Stack react site to demonstrate some very
-              important skills.
+              important skills. 1 year
               <span>
                 best practices - choice of technologies MySQL Node
                 Materialize_react jQuery DataTable.net Bonus React Dnd - never
