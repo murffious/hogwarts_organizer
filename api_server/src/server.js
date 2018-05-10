@@ -20,7 +20,7 @@ app.use(
 // alternate way
 // var routes = require("./controllers/...js");
 
-// app.use("/", routes);
+// app.use("/", routes); OR use router
 
 require("./controllers/courses_controller.js")(app);
 require("./controllers/grades_controller.js")(app);

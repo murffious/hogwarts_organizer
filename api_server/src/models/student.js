@@ -1,6 +1,6 @@
 // Student model
 // Join for courses? or add array here?
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Student = sequelize.define("Student", {
     student_name: {
       type: DataTypes.STRING,
@@ -16,3 +16,6 @@ module.exports = function (sequelize, DataTypes) {
   });
   return Student;
 };
+// Courses []
+// gpa
+// student_id?

@@ -1,0 +1,10 @@
+.data-label {
+    font-size: 13px;
+    font-weight: 500; 
+}
+.m-l-15 {
+    margin-left: 15px !important;
+}
+.hidden {
+    display: none;
+}

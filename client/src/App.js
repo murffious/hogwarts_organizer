@@ -5,6 +5,9 @@ import { Button, Icon, Navbar, NavItem } from "react-materialize";
 import Students from "./components/students/Students";
 import Courses from "./components/courses/Courses";
 import Dashboard_Container from "./containers/Dashboard_Container";
+import Edit_Student_Container from "./containers/Edit_Student_Container";
+import HTML5Backend from "react-dnd-html5-backend";
+import { DragDropContext } from "react-dnd";
 
 class App extends Component {
   render() {
@@ -18,6 +21,11 @@ class App extends Component {
           <div>
             <Route exact path="/dashboard" component={Dashboard_Container} />
             <Route exact path="/students" component={Students} />
+            <Route
+              exact
+              path="/students/edit/:id"
+              component={Edit_Student_Container}
+            />
             <Route exact path="/courses" component={Courses} />
           </div>
         </Router>
@@ -26,4 +34,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);

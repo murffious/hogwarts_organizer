@@ -1,22 +1,26 @@
 // Grades model
 module.exports = function(sequelize, DataTypes) {
-  var Grades = sequelize.define("Grades", {
-    grade: {
-      type: DataTypes.STRING,
-      // If a Student is to be created, they must have a name
-      allowNull: false
-    }
-    //   courses[]: {
-    //     type: DataTypes.STRING,
-    //     // If a Student is to be created, they must have a name
-    //     allowNull: false
+  var Grades = sequelize.define(
+    "Grades",
+    // {
+    //   grades: {
+    //     type: DataTypes.ARRAY(sequelize.ENUM),
+    //     defaultValue: []
     //   }
-    //  {
-    // classMethods: {
-    //   associate: function(models) {
-    //     Student.hasOne(models.Course);
+    // },
+    {
+      grades: {
+        type: DataTypes.STRING,
+        defaultValue: ""
+      }
+    }
+    // {
+    //   classMethods: {
+    //     associate: function(models) {
+    //       Grades.belongsToMany(Course, { foreignKey: "student_id" });
+    //     }
     //   }
     // }
-  });
+  );
   return Grades;
 };

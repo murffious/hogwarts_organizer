@@ -11,62 +11,27 @@ module.exports = {
           updatedAt: new Date()
         },
         {
-          course_name: "Course",
+          course_name: "Care of Magical Creatures",
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          course_name: "Draco Malfoy",
+          course_name: "Flying",
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          course_name: "Seamus Finniganr",
+          course_name: "Transfiguration",
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          course_name: "Neville Longbottom",
+          course_name: "Potions",
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          course_name: "Seamus Finniganr",
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          course_name: "Luna Lovegood",
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          course_name: "Oliver Wood",
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          course_name: "Fred Weasley",
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          course_name: "George Weasley",
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          course_name: "Ginny Weasley",
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          course_name: "Ernie MacMillan",
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          course_name: "Percy Weasley",
+          course_name: "Defense Against the Dark Arts",
           createdAt: new Date(),
           updatedAt: new Date()
         }

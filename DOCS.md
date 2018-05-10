@@ -53,3 +53,13 @@ Went for 100% but missed it.  Front end CRUD and BUTTONS to use CRUD not done bu
 Include a Mongo version and maybe AWS stuff
 Host on Digital Ocean and or Heroku
 put on portfolio
+
+
+DB design
+Any able to help me with a db design for a practice project I am doing? SQL DB  with Sequelize if that makes a difference...  I have 3 tables so far any ideas thank you!
+Students--> Name then connections to their Courses and Grades for each 
+ Courses  --> Name of course and maybe an attachment, and 
+Grades ---> their will be a generic 10 assignments for now not even sure how to deal with those but the grades for each course for each student
+like 
+
+grades : foregin key : 2 student reference 

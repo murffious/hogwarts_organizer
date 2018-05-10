@@ -1,28 +1,13 @@
 import React, { Component } from "react";
-
 // For the jQuery table these need to be imported
 import jQuery, { define } from "jquery";
 import $ from "jquery";
-
 import "../../styles/Table.css";
 import { Row, CardPanel, Col } from "react-materialize";
-
 import dataTable from "../DataTable";
 import Table from "../Table.js";
 import API from "../../controller_api/student_api";
 
-const data = [
-  {
-    _id: 1,
-    grades: ["A"],
-    courses: ["Math"],
-    student_name: "Frank"
-  }
-];
-// const API_URL = process.env.REACT_APP_API
-const API_URL = "http://localhost:3000/";
-
-// add delete  buttons edit
 class Students extends Component {
   constructor(props) {
     super(props);
@@ -31,18 +16,9 @@ class Students extends Component {
     };
   }
 
-  //   toggleClass(event) {
-  //     let currentState = this.state.activeMenu;
-  //     this.setState({ activeMenu: !currentState });
-  //     event.preventDefault();
-  //   }
-
   getStudents = () => {
     API.getStudents()
       .then(res => {
-        // let students = res.data.map(student => {
-        //   return { student_name: student.student_name };
-        // });
         this.setState({
           students: res.data,
           message: !res.length ? "No Students Found, Try a Adding Some" : ""
@@ -52,17 +28,19 @@ class Students extends Component {
   };
 
   deleteStudent = id => {
-    console.log("hi1", id);
     API.deleteStudent(id)
       .then(res => {
+        // May speed up by copy and mutate copy of state..?
         this.getStudents();
       })
       .catch(err => console.log(err));
   };
 
   componentDidMount() {
+    // Grab all students
     this.getStudents();
-    // Delete Button
+
+    // Delete Student Button
     $("body").on("click", '[data-action="delete"]', e => {
       let id = $(e.currentTarget).data("id");
       let delete_student = window.confirm(
@@ -95,12 +73,9 @@ class Students extends Component {
 
   getActionsDropdown(data) {
     let id = data.id;
-    console.log(data, id);
     return `
         <div class="btn-group">
-            <a href="/students/edit/:${
-              data.id
-            }" class="btn bgm-bluegray" data-id=${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> </a>
+            <a href="/students/edit/:${id}" class="btn bgm-bluegray" data-id=${id} aria-expanded="true"><i class="fa fa-pencil-square-o"></i> </a>
             <a id="delete" data-action="delete" class="btn bgm-bluegray" data-id=${id} aria-expanded="true"><i class="fa fa-trash" aria-hidden="true"></i> </a>
         </div>`;
   }
